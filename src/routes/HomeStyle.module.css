@@ -1,0 +1,52 @@
+.container{
+    height: 100vh;
+    background-image: url(../assets/rose.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+}
+
+.content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.content div{
+    text-align: center;
+}
+.content .title{
+    color: rgb(211, 169, 169);
+    font-size: 128px;
+    /* transform: translateY(-50px); */
+}
+.content .secondaryText{
+    color: white;
+    font-size: 48px;
+}
+
+.link{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 50px;
+    border: rgb(173, 144, 144) 3px solid;
+    background-color: rgb(116, 80, 80);
+    text-decoration: none;
+
+    right: 20px;
+
+    transition: background-color 0.3s ease-out;
+}
+.link:visited{
+    color: white;
+}
+.link:hover{
+    background-color: rgb(77, 51, 51);
+}

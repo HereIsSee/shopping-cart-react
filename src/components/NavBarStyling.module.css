@@ -1,0 +1,59 @@
+nav{
+    background-color: rgb(126, 52, 52);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+}
+.title{
+    color: rgb(211, 169, 169);
+    position: absolute;
+    left: 30px;
+    font-size: 72px;
+    text-decoration: none;
+}
+.link:visited{
+    color: white;
+}
+.link{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 20px;
+    border: rgb(173, 144, 144) 3px solid;
+    background-color: rgb(116, 80, 80);
+    text-decoration: none;
+
+    right: 20px;
+
+    transition: background-color 0.3s ease-out;
+}
+.link:visited{
+    color: white;
+}
+.link:hover{
+    background-color: rgb(77, 51, 51);
+}
+
+.cart{
+    position: absolute;
+}
+.cart .redCircle{
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    border-radius: 50%;
+    background-color: rgba(207, 45, 45, 0.76);
+    width: 30px;
+    color: white;
+    font-size: 20px;
+}
+.cart img{
+    height: 40px;
+    filter: invert(1) brightness(1);
+}
+
