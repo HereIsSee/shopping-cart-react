@@ -30,19 +30,8 @@
 }
 
 .link{
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    padding: 20px;
-    font-size: 24px;
+    composes: link from "../components/NavBarStyling.module.css";
     border-radius: 50px;
-    border: rgb(173, 144, 144) 3px solid;
-    background-color: rgb(116, 80, 80);
-    text-decoration: none;
-
-    right: 20px;
-
-    transition: background-color 0.3s ease-out;
 }
 .link:visited{
     color: white;

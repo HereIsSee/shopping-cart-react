@@ -8,8 +8,8 @@ const NavBar = function () {
         <nav>
             <Link to="/" className={NavBarStyling.title}>Bloss</Link>
             <Link to="/" className={NavBarStyling.link}>Home</Link>
-            <Link to="shop" className={NavBarStyling.link}>Shop</Link>
-            <Link to="cart" className={`${NavBarStyling.link} ${NavBarStyling.cart}`}>
+            <Link to="/shop" className={NavBarStyling.link}>Shop</Link>
+            <Link to="/cart" className={`${NavBarStyling.link} ${NavBarStyling.cart}`}>
             <img src={CartImage} alt="Cart" />
             <div className={NavBarStyling.redCircle}>9</div>
             </Link>

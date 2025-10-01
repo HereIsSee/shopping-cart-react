@@ -1,3 +1,5 @@
+import CartItemStyles from './CartItemsStyles.modules.css'
+
 const CartItem = function (){
     return (
         <div>

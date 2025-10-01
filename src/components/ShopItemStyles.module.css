@@ -1,0 +1,40 @@
+.shopItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 300px;
+    height: 500px;
+    gap: 5px;
+    text-align: center;
+    
+
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.shopItem .price{
+    color: red;
+    font-size: 18px;
+}
+.shopItem img{
+    height: 200px;
+}
+.shopItem input{
+    width: 150px;
+    text-align: center;
+}
+.addToCart{
+    margin-top: 10px;
+    padding:10px;
+    border-radius: 50px;
+    border: 2px rgb(155, 133, 133) solid;
+    background-color: rgb(128, 111, 111);
+    color: white;
+    font-size: 18px;
+
+    transition: background-color 0.3s ease-out;
+}
+.addToCart:hover{
+    background-color: rgb(90, 73, 73);
+}
