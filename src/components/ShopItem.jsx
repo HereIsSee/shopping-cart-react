@@ -1,7 +1,7 @@
 import ShopItemStyles from "./ShopItemStyles.module.css";
 import { useState } from "react";
 
-const ShopItem = function ({name ,imageURL, price}){
+const ShopItem = function ({name, id, imageURL, price, item, handleAddToCart}){
     const [itemCount, setItemCount] = useState(0);
 
     return (
@@ -15,7 +15,12 @@ const ShopItem = function ({name ,imageURL, price}){
                 step="1" 
                 onChange={(e) =>{setItemCount(e.target.value)}}
             />
-            <button className={ShopItemStyles.addToCart}>Add to Cart</button>
+            <button 
+                className={ShopItemStyles.addToCart}
+                onClick={()=> handleAddToCart(id, itemCount, item)}
+            >
+                Add to Cart
+            </button>
         </div>
     );
 }

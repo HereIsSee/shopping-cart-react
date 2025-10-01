@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ShopItem from "./ShopItem";
 import ShopItemsStyles from "./ShopItemsStyles.module.css";
+import { getCartItems, updateCartItems } from '../helpers/controlCartItems.js';
 
 const ShopItems = function (){
     const [shopItems, setShopItems] = useState([]);
@@ -24,7 +25,29 @@ const ShopItems = function (){
         fetchShopItems();
         return (() => {
         });
-    }, [])
+    }, []);
+
+    function handleAddToCart(id, quantity, item){
+        if(quantity <= 0){
+            return false;
+        }
+
+        const cartItems = getCartItems();
+        const alreadyContainsItem = cartItems.some(cartItem => cartItem.id === id);
+        let newCartItems;
+        if(alreadyContainsItem){
+            newCartItems = cartItems.map(cartItem => {
+                if(cartItem.id !== id){
+                    return {...cartItem, quantity: quantity}
+                }
+                return cartItem;
+            })
+        } else{
+            newCartItems = [...cartItems];
+            newCartItems.push({...item, quantity: quantity})
+        }
+        updateCartItems(newCartItems);
+    }
 
     if(loading){
         return <h1>Loading...</h1>;
@@ -43,10 +66,13 @@ const ShopItems = function (){
                     console.log(shopItem);
                     return (
                         <ShopItem 
-                            key={shopItem.id} 
+                            key={shopItem.id}
+                            id={shopItem.id}
                             name={shopItem.title} 
                             imageURL={shopItem.image} 
                             price={shopItem.price}
+                            item={shopItem}
+                            handleAddToCart={handleAddToCart}
                         />
                     );
                 }))}
