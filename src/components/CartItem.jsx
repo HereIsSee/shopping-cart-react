@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import CartItemStyles from './CartItemStyles.module.css'
 
 const CartItem = function ({id, name, imageURL, price, quantity, handleChange}){
@@ -15,6 +16,17 @@ const CartItem = function ({id, name, imageURL, price, quantity, handleChange}){
             />
         </div>
     );
+}
+
+CartItem.propTypes = {
+    id: PropTypes.number,
+    name: PropTypes.string,
+    imageURL: PropTypes.string,
+    price: PropTypes.number,
+    quantity: PropTypes.number,
+}
+CartItem.defaultProps ={
+    quantity: 0,
 }
 
 export default CartItem;
