@@ -6,7 +6,7 @@ const Home = function (){
     return (
         <div class={HomeStyle.container}>
             <NavBar />
-            <div class={HomeStyle.content}>
+            <div className={HomeStyle.content}>
                 <div class={HomeStyle.title}>Bloss</div>
                 <div class={HomeStyle.secondaryText}>Home Essentials for Sustainable Living</div>
                 <Link class={HomeStyle.link}to='shop'>Go to Shop</Link>
