@@ -5,12 +5,13 @@ const CartItem = function ({id, name, imageURL, price, quantity, handleChange}){
         <div className={CartItemStyles.cartItem}>
             <img src={imageURL} alt="item picutre" />
             <div>{name}</div>
-            <div>Total price: ${price * quantity}</div>
+            <div>Total price: ${(price * quantity).toFixed(2)}</div>
             <input 
                 type="number" 
                 step="1" 
-                value={quantity} 
-                onChange={()=> handleChange(id)} 
+                value={quantity}
+                min="0"
+                onChange={(e)=> handleChange(e.target.value, id)} 
             />
         </div>
     );

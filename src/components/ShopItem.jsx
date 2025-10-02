@@ -12,7 +12,8 @@ const ShopItem = function ({name, id, imageURL, price, item, handleAddToCart}){
             <input 
                 value={itemCount} 
                 type="number" 
-                step="1" 
+                step="1"
+                min="0"
                 onChange={(e) =>{setItemCount(e.target.value)}}
             />
             <button 

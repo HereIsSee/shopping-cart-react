@@ -8,9 +8,6 @@ const Cart = function (){
             <div className={CartStyles.content}>
                 <h1>Cart</h1>
                 <CartItems />
-                <div>Total items: 9</div>
-                <div>Total price 100.59$</div>
-                <button>Checkout</button>
             </div>
         </>
     );

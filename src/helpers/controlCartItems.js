@@ -10,6 +10,12 @@ function getCartItems(){
     return [];
     
 }
+function getItemsCount(){
+    return getCartItems().reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
+}
+function getPriceTotal(){
+    return getCartItems().reduce((sum, item) =>  sum + ((Number(item.price) || 0) * (Number(item.quantity) || 0)), 0);
+} 
 
 
-export { getCartItems, updateCartItems };
+export { getCartItems, updateCartItems, getItemsCount, getPriceTotal };

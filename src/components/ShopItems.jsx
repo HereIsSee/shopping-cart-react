@@ -2,18 +2,19 @@ import { useEffect, useState } from "react";
 import ShopItem from "./ShopItem";
 import ShopItemsStyles from "./ShopItemsStyles.module.css";
 import { getCartItems, updateCartItems } from '../helpers/controlCartItems.js';
+import AddedToCartMessage from "./AddedToCartMessage.jsx";
 
 const ShopItems = function (){
     const [shopItems, setShopItems] = useState([]);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
+    const [addedItem, setAddedItem] = useState(null);
 
     useEffect(()=>{
         const fetchShopItems = () =>{
             fetch('https://fakestoreapi.com/products')
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 setShopItems(data);
             }).catch((error)=>{
                 setError(error.message);
@@ -35,10 +36,14 @@ const ShopItems = function (){
         const cartItems = getCartItems();
         const alreadyContainsItem = cartItems.some(cartItem => cartItem.id === id);
         let newCartItems;
+
+        console.log(quantity);
         if(alreadyContainsItem){
             newCartItems = cartItems.map(cartItem => {
-                if(cartItem.id !== id){
-                    return {...cartItem, quantity: quantity}
+                if(cartItem.id === id){
+                    
+                    console.log(cartItem.quantity)
+                    return {...cartItem, quantity: Number(quantity) + Number(cartItem.quantity)}
                 }
                 return cartItem;
             })
@@ -47,6 +52,8 @@ const ShopItems = function (){
             newCartItems.push({...item, quantity: quantity})
         }
         updateCartItems(newCartItems);
+
+        setAddedItem({ ...item, quantity });
     }
 
     if(loading){
@@ -63,7 +70,6 @@ const ShopItems = function (){
                 {loading ? <h1 className={ShopItemsStyles.loading}>Loading...</h1>
                 : error !== '' ? <h1 className={ShopItemsStyles.error}>{error}</h1> 
                 : shopItems.map((shopItem =>{
-                    console.log(shopItem);
                     return (
                         <ShopItem 
                             key={shopItem.id}
@@ -77,6 +83,11 @@ const ShopItems = function (){
                     );
                 }))}
             </div>
+
+            <AddedToCartMessage 
+                item={addedItem} 
+            onClose={() => setAddedItem(null)} 
+            />
         </div>
     );
 }

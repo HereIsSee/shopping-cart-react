@@ -1,0 +1,8 @@
+.itemsTotal, .itemsPriceTotal{
+    font-size: 24px;
+}
+
+.itemsTotal span, .itemsPriceTotal span{
+    color: red;
+    font-weight: bold;
+}

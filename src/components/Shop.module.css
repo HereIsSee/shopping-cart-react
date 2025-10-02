@@ -1,0 +1,42 @@
+.module{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 20px;
+}
+dialog.module::backdrop{
+    background: rgba(0,0,0,0.5);
+}
+.module img{
+    height: 300px;
+}
+.closemodule{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(77, 46, 46);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    aspect-ratio: 1 / 1;
+}
+.closemodule:hover{
+    background-color: rgb(51, 31, 31);
+}
+.message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
